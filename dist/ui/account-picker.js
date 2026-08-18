@@ -127,9 +127,7 @@ async function deleteWithConfirmation(slot, switcher, store) {
     return true;
 }
 async function showReloadMessage(message) {
-    const choice = await vscode.window.showInformationMessage(`${message} Reload the VS Code window if Codex still shows the previous account.`, "Reload Window");
-    if (choice === "Reload Window") {
-        await vscode.commands.executeCommand("workbench.action.reloadWindow");
-    }
+    await vscode.window.showInformationMessage(`${message} Reloading VS Code window.`);
+    await vscode.commands.executeCommand("workbench.action.reloadWindow");
 }
 //# sourceMappingURL=account-picker.js.map
