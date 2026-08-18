@@ -1,7 +1,7 @@
 {
   "name": "switchex",
   "displayName": "Switchex",
-  "description": "Privately switch between two local OpenAI Codex auth.json profiles.",
+  "description": "Switch between two local OpenAI Codex accounts in VS Code while keeping auth.json private.",
   "version": "0.1.1",
   "publisher": "Y4ELX",
   "icon": "image.png",
@@ -14,6 +14,18 @@
   },
   "categories": [
     "Other"
+  ],
+  "keywords": [
+    "codex",
+    "openai codex",
+    "codex accounts",
+    "codex account switcher",
+    "codex multiple accounts",
+    "codex switch accounts",
+    "switch codex account",
+    "multiple codex accounts",
+    "openai account switcher",
+    "vscode codex"
   ],
   "activationEvents": [
     "onStartupFinished",
