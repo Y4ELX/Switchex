@@ -37,7 +37,7 @@ exports.accountDisplayName = accountDisplayName;
 exports.showAccountPicker = showAccountPicker;
 exports.saveWithConfirmation = saveWithConfirmation;
 exports.deleteWithConfirmation = deleteWithConfirmation;
-exports.showReloadMessage = showReloadMessage;
+exports.reloadWindow = reloadWindow;
 const vscode = __importStar(require("vscode"));
 function accountDisplayName(slot, store) {
     const metadata = store.getMetadata(slot);
@@ -89,7 +89,7 @@ async function runPickerAction(action, switcher, store, refresh) {
         case "switch":
             await switcher.switchAccount(action.slot);
             await refresh();
-            await showReloadMessage(`Switched to ${await ensureAccountDisplayName(action.slot, switcher, store)}.`);
+            await reloadWindow();
             return;
         case "save":
             await saveWithConfirmation(action.slot, switcher, store);
@@ -126,8 +126,7 @@ async function deleteWithConfirmation(slot, switcher, store) {
     await switcher.deleteAccount(slot);
     return true;
 }
-async function showReloadMessage(message) {
-    await vscode.window.showInformationMessage(`${message} Reloading VS Code window.`);
+async function reloadWindow() {
     await vscode.commands.executeCommand("workbench.action.reloadWindow");
 }
 //# sourceMappingURL=account-picker.js.map

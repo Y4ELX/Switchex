@@ -89,9 +89,7 @@ async function runPickerAction(
     case "switch":
       await switcher.switchAccount(action.slot);
       await refresh();
-      await showReloadMessage(
-        `Switched to ${await ensureAccountDisplayName(action.slot, switcher, store)}.`
-      );
+      await reloadWindow();
       return;
     case "save":
       await saveWithConfirmation(action.slot, switcher, store);
@@ -151,7 +149,6 @@ export async function deleteWithConfirmation(
   return true;
 }
 
-export async function showReloadMessage(message: string): Promise<void> {
-  await vscode.window.showInformationMessage(`${message} Reloading VS Code window.`);
+export async function reloadWindow(): Promise<void> {
   await vscode.commands.executeCommand("workbench.action.reloadWindow");
 }

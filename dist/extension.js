@@ -92,12 +92,12 @@ function activate(context) {
     registerCommand(context, "codexAccountSwitcher.switchAccount1", async () => {
         await switcher.switchAccount(1);
         await refresh();
-        await (0, account_picker_1.showReloadMessage)(`Switched to ${(0, account_picker_1.accountDisplayName)(1, store)}.`);
+        await (0, account_picker_1.reloadWindow)();
     });
     registerCommand(context, "codexAccountSwitcher.switchAccount2", async () => {
         await switcher.switchAccount(2);
         await refresh();
-        await (0, account_picker_1.showReloadMessage)(`Switched to ${(0, account_picker_1.accountDisplayName)(2, store)}.`);
+        await (0, account_picker_1.reloadWindow)();
     });
     registerCommand(context, "codexAccountSwitcher.saveAccount1", async () => {
         await (0, account_picker_1.saveWithConfirmation)(1, switcher, store);

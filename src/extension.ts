@@ -6,11 +6,10 @@ import { AccountSwitcher } from "./auth/account-switcher";
 import { resolveAuthPath } from "./auth/codex-auth";
 import { CodexStatusBar } from "./ui/status-bar";
 import {
-  accountDisplayName,
   deleteWithConfirmation,
+  reloadWindow,
   saveWithConfirmation,
-  showAccountPicker,
-  showReloadMessage
+  showAccountPicker
 } from "./ui/account-picker";
 import { UserFacingError } from "./types";
 
@@ -77,13 +76,13 @@ export function activate(context: vscode.ExtensionContext): void {
   registerCommand(context, "codexAccountSwitcher.switchAccount1", async () => {
     await switcher.switchAccount(1);
     await refresh();
-    await showReloadMessage(`Switched to ${accountDisplayName(1, store)}.`);
+    await reloadWindow();
   });
 
   registerCommand(context, "codexAccountSwitcher.switchAccount2", async () => {
     await switcher.switchAccount(2);
     await refresh();
-    await showReloadMessage(`Switched to ${accountDisplayName(2, store)}.`);
+    await reloadWindow();
   });
 
   registerCommand(context, "codexAccountSwitcher.saveAccount1", async () => {
